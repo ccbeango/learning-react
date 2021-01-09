@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">app</div>
+</body>
+
+</html>
+
+<script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+<script type="text/babel">
+  class App extends React.Component {
+    constructor() {
+      super();
+
+      this.state = {
+
+      };
+    }
+
+    clickButton() {
+      console.log('按钮1 2 4', this);
+    }
+
+    clickButton3 = () => {
+      console.log('按钮3',this);
+    }
+
+    render() {
+      return (
+        <div>
+          {/* 无法获取this */}
+          <button onClick={this.clickButton}>按钮1</button>
+          {/* 方法一：bind()显示绑定 通常会在构造函数中绑定 */}
+          <button onClick={this.clickButton.bind(this)}>按钮2</button>
+          {/* 方法二：使用class field语法 */}
+          <button onClick={this.clickButton3}>按钮3</button>
+          {/* 方法三：箭头函数 */}
+          <button onClick={() => this.clickButton()}>按钮4</button>
+        </div>
+      );
+    }
+  }
+
+  // 渲染App组件
+  ReactDOM.render(<App />, document.getElementById('app'));
+</script>

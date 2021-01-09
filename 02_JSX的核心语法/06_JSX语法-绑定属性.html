@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">app</div>
+</body>
+
+</html>
+
+<script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+<script type="text/babel">
+  class App extends React.Component {
+    constructor() {
+      super();
+
+      this.state = {
+        title: '标题',
+        imgUrl: 'http://p3.music.126.net/FHK7HOXGRM69u9J8wiU4ZQ==/109951165549520393.jpg',
+        blogUrl: 'https://ccbeango.github.io/',
+        active: true
+      };
+    }
+
+    getImageSize(imageUrl, size) {
+      return `${imageUrl}?param=${size}y${size}`;
+    }
+
+    render() {
+      return (
+        <div>
+          {/* 绑定普通属性 */}
+          <h2 title={this.state.title}>Hello World</h2>
+          <img src={this.getImageSize(this.state.imgUrl, 100)} alt="" />
+          <img src={this.getImageSize(this.state.imgUrl, 200)} alt="" />
+          <a href={this.state.blogUrl} target="_blank">我的博客</a>
+
+          {/* 绑定class属性 */}
+          <div className={"box title " + this.state.active ? 'active' : ''}>我是一个div</div>
+          <label htmlFor="name">名字</label>
+
+          {/* 绑定style属性 */}
+          <div style={{ color: 'red', fontSize: '30px' }}>我是绑定style属性的div</div>
+        </div>
+      );
+    }
+  }
+
+  // 渲染App组件
+  ReactDOM.render(<App />, document.getElementById('app'));
+</script>

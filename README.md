@@ -1,3 +1,3 @@
-# React学习代码记录
+# 认识React
 
-根据tag记录知识点代码
+一些React的基本概念学习demo记录

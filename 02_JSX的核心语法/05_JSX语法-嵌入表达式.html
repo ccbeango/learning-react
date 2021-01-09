@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">app</div>
+</body>
+
+</html>
+
+<script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+<script type="text/babel">
+  class App extends React.Component {
+    constructor() {
+      super();
+
+      this.state = {
+        firstname: 'ccbean',
+        lastname: 'go',
+
+        isLogin: false,
+      };
+    }
+
+    getFullname() {
+      return `${this.state.firstname} ${this.state.lastname}`
+    }
+
+    render() {
+      const { firstname, lastname } = this.state;
+      return (
+        <div>
+          {/* 运算符表达式 */}
+          <h2>{`${firstname} ${lastname}`}</h2>
+          <h2>{2 * 10}</h2>
+
+          {/* 三元运算符 */}
+          <h2>{this.state.isLogin ? '欢迎回来' : '请登录'}</h2>
+
+          {/* 进行函数调用 */}
+          <h2>{this.getFullname()}</h2>
+        </div>
+      );
+    }
+  }
+
+  // 渲染App组件
+  ReactDOM.render(<App />, document.getElementById('app'));
+</script>
