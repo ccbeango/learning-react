@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">app</div>
+</body>
+
+</html>
+
+<script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+<script type="text/babel">
+  class App extends React.Component {
+    constructor() {
+      super();
+
+      this.state = {
+        isLogin: false
+      };
+    }
+
+    clickButton(e) {
+      this.setState({
+        isLogin: !this.state.isLogin
+      });
+    }
+
+    render() {
+      // 通过if判断 
+      let welcome = null;
+      if(this.state.isLogin) {
+        welcome = <h2>欢迎回来</h2>
+      } else {
+        welcome = <h2>请登录</h2>
+      }
+
+      return (
+        <div>
+          {welcome}
+          {/* 通过三元运算符 */}
+          <button onClick={e => this.clickButton(e)}>{this.state.isLogin ? '退出' : '登录'}</button>
+          {/* 通过逻辑与 */}
+          <h3>{ this.state.isLogin && '你好' }</h3>
+
+          {/* 控制display是否为none */}
+          <h3 style={{ display: this.state.isLogin ? 'block' : 'none' }}>我是页面内容</h3>
+        </div>
+      );
+    }
+  }
+
+  // 渲染App组件
+  ReactDOM.render(<App />, document.getElementById('app'));
+</script>
