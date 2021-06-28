@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import 'moment/locale/zh-hk';
+import 'moment/locale/zh-cn';
 
 // import 'antd/dist/antd.css';
 import 'antd/dist/antd.less';
