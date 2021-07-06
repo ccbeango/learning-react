@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
-import { subAction, decreAction, fetchHomeMultidataAction } from '../store/actionCreators';
+import { subAction, decreAction } from '../store/counter/actionCreators';
+import { fetchHomeMultidataAction } from '../store/home/actionCreators';
 import { connect } from 'react-redux';
 
 class Home extends PureComponent {
@@ -44,11 +45,14 @@ class Home extends PureComponent {
 }
 
 export default connect(
-  state => ({
-    counter: state.counter,
-    banners: state.banners,
-    recommends: state.recommends
-  }),
+  state => {
+    console.log('????', state)
+    return {
+      counter: state.counterInfo.counter,
+      banners: state.homeInfo.banners,
+      recommends: state.homeInfo.recommends
+    };
+  },
   dispatch => ({
     decreAction() {
       dispatch(decreAction());

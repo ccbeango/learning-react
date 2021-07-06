@@ -1,28 +1,19 @@
-import { ADD_NUMBER, SUB_NUMBER, INCREMENT, DECREMENT, CHANGE_BANNER, CHANGE_RECOMMEND } from './constants';
+import { combineReducers } from 'redux';
+import { reducer as counterReducer } from './counter';
+import { reducer as homeReducer } from './home';
 
-const initialState = {
-  counter: 0,
-  banners: [],
-  recommends: []
-};
 
-const reducer = (state = initialState, action) => {
-  switch(action.type) {
-    case ADD_NUMBER: 
-      return { ...state, counter: state.counter + action.num };
-    case SUB_NUMBER: 
-      return { ...state, counter: state.counter - action.num };
-    case INCREMENT: 
-      return { ...state, counter: state.counter + 1 };
-    case DECREMENT: 
-      return { ...state, counter: state.counter - 1 };
-    case CHANGE_BANNER:
-      return { ...state, banners: action.banners };
-    case CHANGE_RECOMMEND:
-      return { ...state, recommends: action.recommends };
-    default:
-      return state;
-  }
-}
+// const reducer = (state = {}, action) => {
+//   return {
+//     counterInfo: counterReducer(state.counterInfo, action),
+//     homeInfo: homeReducer(state.homeInfo, action)
+//   };
+// }
+
+// 传入函数，内部执行
+const reducer = combineReducers({
+  counterInfo: counterReducer,
+  homeInfo: homeReducer
+});
 
 export default reducer;

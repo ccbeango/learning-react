@@ -7,8 +7,6 @@ import mySaga from './saga';
 // 通过createSagaMiddleware函数来创建saga中间件
 const sagaMiddleware = createSagaMiddleware();
 
-// const enhancer = applyMiddleware(thunkMiddleware);
-// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({ trace: true }) || compose;
 
 const enhancer = composeEnhancers(applyMiddleware(thunkMiddleware, sagaMiddleware));
