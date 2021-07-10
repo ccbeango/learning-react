@@ -1,0 +1,11 @@
+a {
+  padding: 10px;
+}
+
+a.link-active {
+  font-size: 20px;
+}
+
+a.about-active {
+  color: orange;
+}
