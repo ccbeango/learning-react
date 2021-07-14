@@ -14,7 +14,7 @@ export default memo(function App() {
     <Provider store={store}>
       <HashRouter>
         <AppHeader/>
-          {renderRoutes(routes)}
+        {renderRoutes(routes)}
         <AppFooter/>
       </HashRouter>
     </Provider>

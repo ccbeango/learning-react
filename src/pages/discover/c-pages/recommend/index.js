@@ -1,21 +1,23 @@
-import React, { memo, useEffect } from 'react'
-import { useDispatch, useSelector, shallowEqual } from 'react-redux'
+import React, { memo } from 'react'
 
-import { getTopBannersAction } from './store/actionCreators'
+import { RecommendWrapper, Content, RecommendLeft, RecommendRight } from './style'
+import CcTopBanner from './c-cpns/top-banner'
+import CcHotRecommed from './c-cpns/hot-recommend'
+import CcNewAlbum from './c-cpns/new-album'
+import CcRanking from './c-cpns/ranking'
 
 export default memo(function Recommend() {
-  const recommend = useSelector((state) => {
-    return state.recommend.banners
-  }, shallowEqual);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getTopBannersAction())
-  }, [ dispatch ]);
-
   return (
-    <div>
-      <h2>Recommend: {recommend.length}</h2>
-    </div>
+    <RecommendWrapper>
+      <CcTopBanner></CcTopBanner>
+      <Content className="wrap-v2">
+        <RecommendLeft>
+          <CcHotRecommed/>
+          <CcNewAlbum/>
+          <CcRanking/>
+        </RecommendLeft>
+        <RecommendRight></RecommendRight>
+      </Content>
+    </RecommendWrapper>
   )
 })

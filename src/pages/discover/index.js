@@ -10,15 +10,17 @@ export default memo(function Discover(props) {
 
   return (
     <DiscoverWrapper>
-      <TopMenu className="wrap-v1">
-        {
-          dicoverMenu.map(item => (
-            <div className="item" key={item.title}>
-              <NavLink to={item.link}>{item.title}</NavLink>
-            </div>
-          ))
-        }
-      </TopMenu>
+      <div className="top">
+        <TopMenu className="wrap-v1">
+          {
+            dicoverMenu.map(item => (
+              <div className="item" key={item.title}>
+                <NavLink to={item.link}>{item.title}</NavLink>
+              </div>
+            ))
+          }
+        </TopMenu>
+      </div>
       {renderRoutes(props.route.routes)}
     </DiscoverWrapper>
   )
