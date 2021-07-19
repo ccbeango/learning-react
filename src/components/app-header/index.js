@@ -22,7 +22,7 @@ export default memo(function HYAppHeader() {
     <HeaderWarpper>
       <div className="content wrap-v1">
         <HeaderLeft>
-          <a href="#/" className="logo sprite_01"></a>
+          <a href="#/" className="logo sprite_01">logo</a>
           <div className="select-list">
             {
               headerLinks.map((item, index) => (

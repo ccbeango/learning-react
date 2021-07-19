@@ -1,16 +1,17 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 
-import HYDiscover from '@/pages/discover';
-import HYFriend from '@/pages/friend';
-import HYMine from '@/pages/mine';
+import CcDiscover from '@/pages/discover';
+import CcFriend from '@/pages/friend';
+import CcMine from '@/pages/mine';
+import CcPlayer from '@/pages/player';
 
-import HYAlbum from '@/pages/discover/c-pages/album';
-import HYArtist from '@/pages/discover/c-pages/artist';
-import HYDjRadio from '@/pages/discover/c-pages/djradio';
-import HYRanking from '@/pages/discover/c-pages/ranking';
-import HYRecommend from '@/pages/discover/c-pages/recommend';
-import HYSongs from '@/pages/discover/c-pages/songs';
+import CcAlbum from '@/pages/discover/c-pages/album';
+import CcArtist from '@/pages/discover/c-pages/artist';
+import CcDjRadio from '@/pages/discover/c-pages/djradio';
+import CcRanking from '@/pages/discover/c-pages/ranking';
+import CcRecommend from '@/pages/discover/c-pages/recommend';
+import CcSongs from '@/pages/discover/c-pages/songs';
 
 const routes = [
   {
@@ -20,7 +21,7 @@ const routes = [
   },
   {
     path: '/discover',
-    component: HYDiscover,
+    component: CcDiscover,
     routes: [
       {
         path: '/discover',
@@ -29,37 +30,41 @@ const routes = [
       },
       {
         path: '/discover/recommend',
-        component: HYRecommend
+        component: CcRecommend
       },
       {
         path: "/discover/ranking",
-        component: HYRanking
+        component: CcRanking
       },
       {
         path: "/discover/songs",
-        component: HYSongs
+        component: CcSongs
       },
       {
         path: "/discover/djradio",
-        component: HYDjRadio
+        component: CcDjRadio
       },
       {
         path: "/discover/artist",
-        component: HYArtist
+        component: CcArtist
       },
       {
         path: "/discover/album",
-        component: HYAlbum
+        component: CcAlbum
+      },
+      {
+        path: "/discover/player",
+        component: CcPlayer
       }
     ]
   },
   {
     path: '/friend',
-    component: HYFriend
+    component: CcFriend
   },
   {
     path: '/mine',
-    component: HYMine
+    component: CcMine
   }
 ];
 
