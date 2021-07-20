@@ -1,6 +1,15 @@
+import React from 'react';
+
+import { Provider } from "react-redux";
+import store from "./store";
+
+import HYMain from './pages/main';
+
 function App() {
   return (
-    <h1>Hello React</h1>
+    <Provider store={store}>
+      <HYMain/>
+    </Provider>
   );
 }
 
