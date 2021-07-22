@@ -1,17 +1,29 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 
-import CcDiscover from '@/pages/discover';
-import CcFriend from '@/pages/friend';
-import CcMine from '@/pages/mine';
-import CcPlayer from '@/pages/player';
+const CcDiscover = React.lazy(() => import('@/pages/discover'));
+const CcFriend = React.lazy(() => import('@/pages/friend'));
+const CcMine = React.lazy(() => import('@/pages/mine'));
+const CcPlayer = React.lazy(() => import('@/pages/player'));
 
-import CcAlbum from '@/pages/discover/c-pages/album';
-import CcArtist from '@/pages/discover/c-pages/artist';
-import CcDjRadio from '@/pages/discover/c-pages/djradio';
-import CcRanking from '@/pages/discover/c-pages/ranking';
-import CcRecommend from '@/pages/discover/c-pages/recommend';
-import CcSongs from '@/pages/discover/c-pages/songs';
+const CcAlbum = React.lazy(() => import('@/pages/discover/c-pages/album'));
+const CcArtist = React.lazy(() => import('@/pages/discover/c-pages/artist'));
+const CcDjRadio = React.lazy(() => import('@/pages/discover/c-pages/djradio'));
+const CcRanking = React.lazy(() => import('@/pages/discover/c-pages/ranking'));
+const CcRecommend = React.lazy(() => import('@/pages/discover/c-pages/recommend'));
+const CcSongs = React.lazy(() => import('@/pages/discover/c-pages/songs'));
+
+// import CcDiscover from '@/pages/discover';
+// import CcFriend from '@/pages/friend';
+// import CcMine from '@/pages/mine';
+// import CcPlayer from '@/pages/player';
+
+// import CcAlbum from '@/pages/discover/c-pages/album';
+// import CcArtist from '@/pages/discover/c-pages/artist';
+// import CcDjRadio from '@/pages/discover/c-pages/djradio';
+// import CcRanking from '@/pages/discover/c-pages/ranking';
+// import CcRecommend from '@/pages/discover/c-pages/recommend';
+// import CcSongs from '@/pages/discover/c-pages/songs';
 
 const routes = [
   {
