@@ -1,16 +1,12 @@
-import { Provider } from 'react-redux';
+import { StoreContext } from './lib/react-redux';
 import store from './store';
-import Home4 from './pages/home4-redux-thunk的使用';
-import Home5 from './pages/home5-redux-saga的使用';
+import Counter from './pages/counter';
 
 function App() {
   return (
-    <>
-      <Provider store={store}>
-        <Home4/>    
-        <Home5/>    
-      </Provider>  
-    </>
+    <StoreContext.Provider value={store}>
+      <Counter/>
+    </StoreContext.Provider>
   );
 }
 

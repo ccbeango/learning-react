@@ -1,4 +1,4 @@
-import { ADD_NUMBER, SUB_NUMBER, INCREMENT, DECREMENT, CHANGE_BANNER, CHANGE_RECOMMEND, FETCH_HOME_MULTIDATA } from './constants';
+import { ADD_NUMBER, SUB_NUMBER, INCREMENT, DECREMENT } from './constants';
 
 export const addAction = (num) => {
   return {
@@ -20,4 +20,12 @@ export const increAction = () => {
 
 export const decreAction = () => {
   return { type: DECREMENT };
+}
+
+export const increActionAsync = () => {
+  return (dispatch) => {
+    setTimeout(() => {
+      dispatch({ type: INCREMENT });
+    }, 1000);
+  }
 }
