@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { subAction, decreAction, increAction, increActionAsync } from '../store/counter/actionCreators';
+import { subAction, decreAction, increAction, increActionAsync, increActionAsync2 } from '../store/counter/actionCreators';
 import { connect } from '../lib/react-redux';
 
 class Home extends PureComponent {
@@ -11,6 +11,7 @@ class Home extends PureComponent {
         <h2>计数：{this.props.counter}</h2>
         <button onClick={e => this.increment()}>+1</button>
         <button onClick={e => this.incrementAsync()}>Async +1</button>
+        <button onClick={e => this.incrementAsync2()}>Async +1 222</button>
         <button onClick={e => this.decrement()}>-1</button>
         <button onClick={e => this.subNumber()}>-5</button>
       </div>
@@ -23,6 +24,10 @@ class Home extends PureComponent {
 
   incrementAsync() {
     this.props.increActionAsync();
+  }
+
+  incrementAsync2() {
+    this.props.increActionAsync2();
   }
 
   decrement() {
@@ -52,6 +57,9 @@ export default connect(
     },
     increActionAsync () {
       dispatch(increActionAsync());
+    },
+    increActionAsync2 () {
+      dispatch(increActionAsync2());
     },
     decreAction() {
       dispatch(decreAction());

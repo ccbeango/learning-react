@@ -29,3 +29,23 @@ export const increActionAsync = () => {
     }, 1000);
   }
 }
+
+export const increActionAsync3 = () => {
+  return async (dispatch) => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        dispatch({ type: INCREMENT });
+        resolve('hello');
+      }, 1000)
+    })
+  }
+}
+
+export const increActionAsync2 = () => {
+  return async (dispatch) => {
+    await increActionAsync3()(dispatch)
+    setTimeout(() => {
+      dispatch({ type: DECREMENT });
+    }, 1000)
+  }
+}
